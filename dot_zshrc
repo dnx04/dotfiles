@@ -1,0 +1,43 @@
+source /usr/share/zinit/zinit.zsh
+
+# Plugins
+zinit wait lucid light-mode for \
+    atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+    atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
+    blockf atpull'zinit creinstall -q .' zsh-users/zsh-completions \
+    bindmap"^B -> ^H" trackbinds zdharma-continuum/zbrowse \
+    zdharma-continuum/zui \
+
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+    pick"direnv" src="zhook.zsh" for \
+        direnv/direnv
+
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
+
+# Starship theme
+zinit ice as"command" from"gh-r" \
+        atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+        atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+
+# Alias
+TREE_IGNORE="cache|log|logs|node_modules|vendor"
+
+alias ls=' exa --group-directories-first'
+alias la=' ls -a'
+alias ll=' ls --git -l'
+alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias ltt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
+alias lttt=' ls --tree -D -L 4 -I ${TREE_IGNORE}'
+alias ltttt=' ls --tree -D -L 5 -I ${TREE_IGNORE}'
+
+alias pwninit='pwninit --template-path ~/ctf/tools/pwninit.py'
+
+zmodload zsh/zprof
+
+# Created by `pipx` on 2024-01-28 12:46:27
+export PATH="$PATH:/home/dnx04/.local/bin"

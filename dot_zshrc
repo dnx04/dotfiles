@@ -1,3 +1,5 @@
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 # Order of execution of related Ice-mods: atinit -> atpull! -> make'!!' -> mv
 # -> cp -> make! -> atclone/atpull -> make -> (plugin script loading) -> src
 # -> multisrc -> atload.

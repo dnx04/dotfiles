@@ -1,0 +1,192 @@
+# check for zinit and clone if not installed
+ZINIT_HOME=~/.local/share/zinit/zinit.git
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" --depth=1
+
+source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# some old .zshrc config
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
+
+# enable command-not-found if installed
+if [ -f /etc/zsh_command_not_found ]; then
+    . /etc/zsh_command_not_found
+fi
+if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=290000
+SAVEHIST=$HISTSIZE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+
+# setopt
+setopt autocd              # change directory just by typing its name
+#setopt correct            # auto correct mistakes
+setopt interactivecomments # allow comments in interactive mode
+setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
+setopt nonomatch           # hide error message if there is no match for the pattern
+setopt notify              # report the status of background jobs immediately
+setopt numericglobsort     # sort filenames numerically when it makes sense
+setopt promptsubst         # enable command substitution in prompt
+setopt list_ambiguous         # complete as much of a completion until it gets ambiguous.
+setopt nolisttypes
+setopt listpacked
+setopt automenu
+unsetopt BEEP
+setopt vi
+
+zinit depth=1 for \
+  zdharma-continuum/zinit-annex-binary-symlink
+
+# grab bat (better cat) binary
+zinit ice from"gh-r" as"command" \
+  mv"bat-*/bat -> bat" \
+  atclone"
+    mv -vf bat-*/autocomplete/bat.zsh _bat
+    mv -vf bat-*/bat.1 ${ZINIT[MAN_DIR]}/man1
+  " \
+  atpull"%atclone" \
+  atload"
+    export BAT_THEME='base16'
+    export BAT_PAGER='less -R -F -+X --mouse'
+    export MANPAGER='sh -c \"col -bx | bat --color=always --style=plain --language=man\"'
+    alias bat='bat --paging=never --color=auto --style=numbers,changes'
+    alias cats='bat --paging=always --color=always --style=numbers,changes'
+  "
+zinit light sharkdp/bat
+
+# grab eza (better ls) binary
+zinit ice from"gh-r" as"command" \
+  atload"
+    alias ls='eza --color=auto -GF --icons --group-directories-first'
+    alias ll='eza --color=auto -1laF --git --icons --group-directories-first'
+    alias lt='ll -T -L=2'
+  "
+zinit light eza-community/eza
+
+# grab fzf binary from release & other files from source
+zinit ice from"gh-r" as"command" \
+  atclone"
+    wget https://github.com/junegunn/fzf/raw/HEAD/shell/key-bindings.zsh;
+    wget https://github.com/junegunn/fzf/raw/HEAD/shell/completion.zsh -O _fzf;
+    wget https://github.com/junegunn/fzf/raw/HEAD/man/man1/fzf.1;
+    mv fzf.1 ${ZINIT[MAN_DIR]}/man1; 
+  " \
+  atpull"%atclone" \
+  src"key-bindings.zsh" \
+  lbin"!fzf"
+zinit light junegunn/fzf
+
+# tab completions via fzf
+export FZF_PREVIEW_FILE_COMMAND='bat --color=always --style=plain --paging=never --line-range :500'
+export FZF_PREVIEW_DIR_COMMAND='eza -1a --color=always --group-directories-first --icons --git --time-style=long-iso --block-size=MB --human-readable'
+zinit ice wait"1" lucid \
+  has"fzf" \
+  atload"
+    zstyle ':completion:*' verbose yes
+    zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
+    zstyle ':completion:*:descriptions' format '[%d]'
+    zstyle ':completion::complete:*:*:files' ignored-patterns '.DS_Store' 'Icon?' '.Trash'
+    zstyle ':completion::complete:*:*:globbed-files' ignored-patterns '.DS_Store' 'Icon?' '.Trash'
+    zstyle ':completion::complete:rm:*:globbed-files' ignored-patterns
+    zstyle ':fzf-tab:*' fzf-command fzf
+    zstyle ':fzf-tab:*' fzf-flags '--ansi'
+    zstyle ':fzf-tab:*' fzf-bindings \
+      'tab:accept' \
+      'ctrl-y:preview-page-up' \
+      'ctrl-v:preview-page-down' \
+      'ctrl-e:execute-silent(\${VISUAL:-code} \$realpath >/dev/null 2>&1)' \
+      'ctrl-w:execute(\${EDITOR:-nano} \$realpath >/dev/tty </dev/tty)+refresh-preview'
+    zstyle ':fzf-tab:*' fzf-min-height 15
+    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
+      'git diff --no-ext-diff \$word | delta --paging=never --no-gitconfig --line-numbers --file-style=omit --hunk-header-style=omit --theme=base16'
+    zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
+      'git --no-pager log --color=always --format=oneline --abbrev-commit --follow \$word'
+    zstyle ':fzf-tab:complete:man:*' fzf-preview \
+      'man -P \"col -bx\" \$word | $FZF_PREVIEW_FILE_COMMAND --language=man'
+    zstyle ':fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest' fzf-preview \
+      'brew info \$word'
+    zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview \
+      'echo \${(P)word}'
+    zstyle ':fzf-tab:complete:*:options' fzf-preview
+    zstyle ':fzf-tab:complete:*:options' fzf-flags '--no-preview'
+    zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
+    zstyle ':fzf-tab:complete:*:argument-1' fzf-flags '--no-preview'
+    zstyle ':fzf-tab:complete:*:*' fzf-preview \
+      '($FZF_PREVIEW_FILE_COMMAND \$realpath || $FZF_PREVIEW_DIR_COMMAND \$realpath) 2>/dev/null'
+  "
+zinit light Aloxaf/fzf-tab
+
+# autosuggestions, trigger precmd hook upon load
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+zinit ice wait lucid \
+  atload"_zsh_autosuggest_start" depth=1
+zinit light zsh-users/zsh-autosuggestions
+
+# syntax highlighting
+zinit ice wait lucid atinit="zpcompinit;zpcdreplay" depth=1
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+# direnv
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+  pick"direnv" src="zhook.zsh" for \
+    direnv/direnv
+
+# chezmoi
+zinit from"gh-r" as"program" mv"chezmoi* -> chezmoi" \
+  atclone'./chezmoi completion zsh > _chezmoi' atpull'%atclone' \
+  pick"*/chezmoi" for \
+    twpayne/chezmoi
+
+# atuin
+zinit from"gh-r" as"program" mv"atuin* -> atuinsh" bpick"atuin-x86_64-unknown-linux-gnu.tar.gz" \
+  atclone"
+    mv ./atuinsh/atuin ./atuin
+    rm -rf ./atuinsh
+    ./atuin init zsh > init.zsh
+    ./atuin gen-completions --shell zsh > _atuin
+  " \
+  atpull'%atclone' src"init.zsh" pick"*/atuin" for \
+  atuinsh/atuin
+
+# Starship
+zinit ice as"command" from"gh-r" \
+  atclone"
+    ./starship init zsh > init.zsh
+    ./starship completions zsh > _starship
+  " \
+  atpull"%atclone" src"init.zsh" lucid
+zinit light starship/starship
+
+# zoxide
+zinit ice wait"2" as"command" from"gh-r" lucid \
+  atclone"./zoxide init zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh" nocompile'!'
+zinit light ajeetdsouza/zoxide
+
+# neovim
+zinit ice wait as"program" from"gh-r" pick"*/bin/nvim" lucid
+zinit light neovim/neovim
+
+# ripgrep
+zinit ice wait as"program" from"gh-r" mv"ripgrep* -> rg" lbin"!rg" lucid
+zinit light BurntSushi/ripgrep
+
+# fd
+zinit ice wait as"program" from"gh-r" mv"fd* -> fd" lbin"!fd" lucid
+zinit light sharkdp/fd
+
+# Created by `pipx` on 2024-06-01 09:36:57
+export PATH="$PATH:/home/dnx04/.local/bin"
+export GPG_TTY=$(tty)

@@ -1,0 +1,13 @@
+[init]
+    defaultBranch = main
+
+[user]
+	email = 86938955+dnx04@users.noreply.github.com
+    name = dnx04
+	signingkey = 83D98D84A5A12E7E
+[commit]
+	gpgsign = true
+[core]
+    editor = code --wait
+[tag]
+	gpgSign = true

@@ -16,3 +16,6 @@ auto_prune = true
 recipients = [
 	"age17zp0u74ar4ta0ggtcn3lj4avqkp84qt2cqa0uczvkju0xcpldezsalrr0z"
 ]
+
+[bootstrap.services.mise-history]
+builtin = "history-watch"

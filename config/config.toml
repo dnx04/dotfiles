@@ -10,6 +10,7 @@ auto_prune = true
 "~/.bashrc" = { mode = "track" }
 "~/.config/git/config" = { mode = "track" }
 "~/.config/mise/config.toml" = { mode = "track" }
+"~/.config/tmux/tmux.conf" = { mode = "track" }
 "~/.omp/APPEND_SYSTEM.md" = { mode = "track" }
 "~/.omp/agent/config.yml" = { mode = "track" }
 "~/.omp/agent/models.yml" = { mode = "track", encrypt = true }

@@ -8,6 +8,7 @@ auto_prune = true
 
 [dotfiles]
 "~/.bashrc" = { mode = "track" }
+"~/.config/git/config" = { mode = "track" }
 "~/.config/mise/config.toml" = { mode = "track" }
 "~/.omp/APPEND_SYSTEM.md" = { mode = "track" }
 "~/.omp/agent/config.yml" = { mode = "track" }

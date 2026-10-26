@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "enrollment": [
+    {
+      "path": "home/.omp/APPEND_SYSTEM.md",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
+      "path": "home/.omp/agent/config.yml",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    }
+  ],
+  "exclude": [],
+  "recipients": [],
+  "permissions": {
+    "home/.omp/agent": 448,
+    "home/.omp/agent/config.yml": 384
+  }
+}

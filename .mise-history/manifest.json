@@ -8,6 +8,12 @@
       "variants": []
     },
     {
+      "path": "home/.bashrc",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.omp/APPEND_SYSTEM.md",
       "autosave": true,
       "encrypt": false,

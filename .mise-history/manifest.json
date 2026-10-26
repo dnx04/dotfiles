@@ -12,10 +12,18 @@
       "autosave": true,
       "encrypt": false,
       "variants": []
+    },
+    {
+      "path": "home/.omp/agent/models.yml",
+      "autosave": true,
+      "encrypt": true,
+      "variants": []
     }
   ],
   "exclude": [],
-  "recipients": [],
+  "recipients": [
+    "age17zp0u74ar4ta0ggtcn3lj4avqkp84qt2cqa0uczvkju0xcpldezsalrr0z"
+  ],
   "permissions": {
     "home/.omp/agent": 448,
     "home/.omp/agent/config.yml": 384

@@ -1,0 +1,18 @@
+[tools]
+age = "latest"
+go = "latest"
+oh-my-pi = { version = "latest", rename_exe = "omp" }
+
+[settings.upgrade]
+auto_prune = true
+
+[dotfiles]
+"~/.config/mise/config.toml" = { mode = "track" }
+"~/.omp/APPEND_SYSTEM.md" = { mode = "track" }
+"~/.omp/agent/config.yml" = { mode = "track" }
+"~/.omp/agent/models.yml" = { mode = "track", encrypt = true }
+
+[history.encryption]
+recipients = [
+	"age17zp0u74ar4ta0ggtcn3lj4avqkp84qt2cqa0uczvkju0xcpldezsalrr0z"
+]

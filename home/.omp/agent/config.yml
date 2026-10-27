@@ -1,3 +1,6 @@
 setupVersion: 2
 modelRoles:
-  default: openai-codex/gpt-6-luna:xhigh
+  slow: omni/cx/gpt-6-astra:auto
+  smol: omni/cx/gpt-6-luna:auto
+  default: omni/cx/gpt-6.1-sol
+defaultThinkingLevel: auto

@@ -5,6 +5,7 @@
 	br = branch
 	ci = commit
 	st = status
+	ida = !cd \"${GIT_PREFIX:-.}\" && \"/opt/ida-pro/tools/teams/git-ida\"
 [init]
 	defaultBranch = master
 [pull]

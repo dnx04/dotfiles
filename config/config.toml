@@ -1,5 +1,7 @@
 [tools]
 age = "latest"
+bun = "latest"
+gh = "latest"
 go = "latest"
 oh-my-pi = { version = "latest", rename_exe = "omp" }
 

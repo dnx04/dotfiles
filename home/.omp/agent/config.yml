@@ -2,5 +2,5 @@ setupVersion: 2
 modelRoles:
   slow: omni/cx/gpt-6-astra:auto
   smol: omni/cx/gpt-6-luna:auto
-  default: omni/cx/gpt-6-luna
+  default: nvidia/moonshotai/kimi-k3
 defaultThinkingLevel: auto

@@ -2,5 +2,5 @@ setupVersion: 2
 modelRoles:
   slow: omni/cx/gpt-6-astra:auto
   smol: omni/cx/gpt-6-luna:auto
-  default: omni/nvidia/z-ai/glm-5.3-flash
+  default: omni/cx/gpt-6.1-sol
 defaultThinkingLevel: auto

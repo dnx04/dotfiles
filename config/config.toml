@@ -5,6 +5,7 @@ gh = "latest"
 go = "latest"
 node = "latest"
 oh-my-pi = { version = "latest", rename_exe = "omp" }
+opencode = { version = "latest", allow_builds = ["@opencode/cli"] }
 
 [settings.upgrade]
 auto_prune = true

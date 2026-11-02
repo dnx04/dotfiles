@@ -2,7 +2,7 @@ setupVersion: 2
 modelRoles:
   slow: omni/claude-opus-5-5:auto
   smol: omni/claude-haiku-5-5:high
-  default: omni/gpt-6.1-sol
+  default: omni/claude-sonnet-5-5
 defaultThinkingLevel: auto
 dev:
   autoqaConsent: granted

@@ -15,5 +15,3 @@ fi
 source ~/.local/share/omarchy/default/bash/rc
 
 # Add your own exports, aliases, and functions below.
-alias node='bun'
-alias npx='bunx'

@@ -1,7 +1,7 @@
 setupVersion: 2
 modelRoles:
   slow: omni/cx/gpt-6-astra:auto
-  smol: omni/claude-haiku-5-5
+  smol: omni/claude-haiku-5-5:high
   default: omni/gpt-6.1-sol
 defaultThinkingLevel: auto
 dev:

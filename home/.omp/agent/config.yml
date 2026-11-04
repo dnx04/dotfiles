@@ -1,8 +1,0 @@
-setupVersion: 2
-modelRoles:
-  slow: omni/claude-opus-5-5:auto
-  smol: omni/claude-haiku-5-5:high
-  default: omni/claude-opus-5-5
-defaultThinkingLevel: auto
-dev:
-  autoqaConsent: granted

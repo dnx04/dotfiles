@@ -4,7 +4,6 @@ bun = "latest"
 gh = "latest"
 go = "latest"
 node = "latest"
-oh-my-pi = { version = "latest", rename_exe = "omp" }
 
 [settings.upgrade]
 auto_prune = true

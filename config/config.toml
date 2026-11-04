@@ -1,6 +1,7 @@
 [tools]
 age = "latest"
 bun = "latest"
+claude = "latest"
 gh = "latest"
 go = "latest"
 node = "latest"

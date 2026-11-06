@@ -5,7 +5,6 @@ claude = "latest"
 codex = "latest"
 gh = "latest"
 go = "latest"
-neovim = "latest"
 node = "latest"
 
 [settings.upgrade]

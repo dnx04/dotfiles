@@ -103,9 +103,9 @@ mode = "track"
 [dotfiles."~/.config/nvim/lua/plugins/python.lua"]
 mode = "track"
 
+[dotfiles."~/.config/nvim/lua/plugins/sidekick.lua"]
+mode = "track"
+
 [dotfiles."~/.config/tmux/tmux.conf"]
 mode = "track"
 
-[dotfiles."~/.config/nvim/plugin/after/transparency.lua"]
-mode = "track"
-variants = [{ profile = "desktop" }]

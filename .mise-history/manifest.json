@@ -8,6 +8,12 @@
       "variants": []
     },
     {
+      "path": "config/config.toml",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.bashrc",
       "autosave": true,
       "encrypt": false,
@@ -81,6 +87,12 @@
     },
     {
       "path": "home/.config/fish/functions/node.fish",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
+      "path": "home/.config/git/config",
       "autosave": true,
       "encrypt": false,
       "variants": []
@@ -176,6 +188,12 @@
       "variants": []
     },
     {
+      "path": "home/.config/nvim/lua/plugins/sidekick.lua",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.config/nvim/lua/plugins/snacks-animated-scrolling-off.lua",
       "autosave": true,
       "encrypt": false,
@@ -192,18 +210,6 @@
       "autosave": true,
       "encrypt": false,
       "variants": []
-    },
-    {
-      "path": "home/.config/nvim/plugin/after/transparency.lua",
-      "autosave": true,
-      "encrypt": false,
-      "variants": [
-        {
-          "os": [],
-          "profile": "desktop",
-          "default": false
-        }
-      ]
     },
     {
       "path": "home/.config/nvim/stylua.toml",

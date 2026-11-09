@@ -1,0 +1,25 @@
+[tools]
+age = "latest"
+bun = "latest"
+claude = "latest"
+codex = "latest"
+gh = "latest"
+go = "latest"
+node = "latest"
+
+[settings.upgrade]
+auto_prune = true
+
+[dotfiles]
+"~/.bashrc" = { mode = "track" }
+"~/.config/git/config" = { mode = "track" }
+"~/.config/mise/config.toml" = { mode = "track" }
+"~/.config/tmux/tmux.conf" = { mode = "track" }
+
+[history.encryption]
+recipients = [
+	"age17zp0u74ar4ta0ggtcn3lj4avqkp84qt2cqa0uczvkju0xcpldezsalrr0z"
+]
+
+[bootstrap.services.mise-history]
+builtin = "history-watch"

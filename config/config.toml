@@ -1,11 +1,9 @@
 [tools]
-age = "latest"
 bun = "latest"
 claude = "latest"
 codex = "latest"
 gh = "latest"
 go = "latest"
-node = "latest"
 
 [settings.upgrade]
 auto_prune = true

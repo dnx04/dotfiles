@@ -188,6 +188,12 @@
       "variants": []
     },
     {
+      "path": "home/.config/nvim/lua/plugins/sidekick.lua",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.config/nvim/lua/plugins/snacks-animated-scrolling-off.lua",
       "autosave": true,
       "encrypt": false,

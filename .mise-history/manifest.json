@@ -8,6 +8,12 @@
       "variants": []
     },
     {
+      "path": "config/config.toml",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
       "path": "home/.bashrc",
       "autosave": true,
       "encrypt": false,
@@ -81,6 +87,12 @@
     },
     {
       "path": "home/.config/fish/functions/node.fish",
+      "autosave": true,
+      "encrypt": false,
+      "variants": []
+    },
+    {
+      "path": "home/.config/git/config",
       "autosave": true,
       "encrypt": false,
       "variants": []

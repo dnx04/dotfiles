@@ -212,18 +212,6 @@
       "variants": []
     },
     {
-      "path": "home/.config/nvim/plugin/after/transparency.lua",
-      "autosave": true,
-      "encrypt": false,
-      "variants": [
-        {
-          "os": [],
-          "profile": "desktop",
-          "default": false
-        }
-      ]
-    },
-    {
       "path": "home/.config/nvim/stylua.toml",
       "autosave": true,
       "encrypt": false,

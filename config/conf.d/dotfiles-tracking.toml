@@ -1,0 +1,115 @@
+# Install into global mise conf.d with install-track.py.
+# Live files are authoritative; seed files are only for initial setup.
+
+[dotfiles."~/.config/mise/conf.d/dotfiles-tracking.toml"]
+mode = "track"
+
+[dotfiles."~/.bashrc"]
+mode = "track"
+
+[dotfiles."~/.config/starship.toml"]
+mode = "track"
+
+[dotfiles."~/.config/fish/conf.d/00-starship-env.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/config.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/fish_user_key_bindings.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/fzf_processes.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/fzf_variables.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/ls.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/lsa.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/lt.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/lta.fish"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/.gitignore"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/.neoconf.json"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/LICENSE"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/README.md"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/init.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/config/autocmds.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/config/keymaps.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/config/lazy.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/config/remote_clipboard.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/config/options.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/disable-news-alert.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/navigation.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/snacks-animated-scrolling-off.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/stylua.toml"]
+mode = "track"
+
+[dotfiles."~/.config/tmux/common.conf"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/bun.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/functions/node.fish"]
+mode = "track"
+
+[dotfiles."~/.config/fish/conf.d/vi-mode.fish"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/theme.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/theme-hotreload.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/all-themes.lua"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lazyvim.json"]
+mode = "track"
+
+[dotfiles."~/.config/nvim/lua/plugins/python.lua"]
+mode = "track"
+
+[dotfiles."~/.config/tmux/tmux.conf"]
+mode = "track"
+variants = [{ profile = "desktop" }, { profile = "server" }]
+
+[dotfiles."~/.config/nvim/plugin/after/transparency.lua"]
+mode = "track"
+variants = [{ profile = "desktop" }]

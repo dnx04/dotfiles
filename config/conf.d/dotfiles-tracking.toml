@@ -79,9 +79,6 @@ mode = "track"
 [dotfiles."~/.config/nvim/stylua.toml"]
 mode = "track"
 
-[dotfiles."~/.config/tmux/common.conf"]
-mode = "track"
-
 [dotfiles."~/.config/fish/functions/bun.fish"]
 mode = "track"
 
@@ -108,7 +105,6 @@ mode = "track"
 
 [dotfiles."~/.config/tmux/tmux.conf"]
 mode = "track"
-variants = [{ profile = "desktop" }, { profile = "server" }]
 
 [dotfiles."~/.config/nvim/plugin/after/transparency.lua"]
 mode = "track"

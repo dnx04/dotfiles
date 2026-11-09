@@ -218,27 +218,10 @@
       "variants": []
     },
     {
-      "path": "home/.config/tmux/common.conf",
-      "autosave": true,
-      "encrypt": false,
-      "variants": []
-    },
-    {
       "path": "home/.config/tmux/tmux.conf",
       "autosave": true,
       "encrypt": false,
-      "variants": [
-        {
-          "os": [],
-          "profile": "desktop",
-          "default": false
-        },
-        {
-          "os": [],
-          "profile": "server",
-          "default": false
-        }
-      ]
+      "variants": []
     }
   ],
   "exclude": [],

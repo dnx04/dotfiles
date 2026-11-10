@@ -248,6 +248,7 @@
     "home/.config/fish": 448,
     "home/.config/fish/conf.d": 509,
     "home/.config/fish/functions": 509,
+    "home/.config/git": 509,
     "home/.config/nvim": 509,
     "home/.config/nvim/.neoconf.json": 436,
     "home/.config/nvim/LICENSE": 436,

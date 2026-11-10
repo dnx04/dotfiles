@@ -1,0 +1,38 @@
+[tools]
+age = "latest"
+bat = "latest"
+bun = "latest"
+claude = "latest"
+codex = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+gdu = "latest"
+gh = "latest"
+"github:io12/pwninit" = "latest"
+go = "latest"
+lazygit = "latest"
+micromamba = "latest"
+neovim = "latest"
+node = "latest"
+starship = "latest"
+uv = "latest"
+zoxide = "latest"
+
+[settings.upgrade]
+auto_prune = true
+prune_after = "0s"
+
+[dotfiles]
+"~/.bashrc" = { mode = "track" }
+"~/.config/git/config" = { mode = "track" }
+"~/.config/mise/config.toml" = { mode = "track", variants = [{ profile = "desktop" }, { profile = "server" }] }
+"~/.config/tmux/tmux.conf" = { mode = "track" }
+
+[history.encryption]
+recipients = [
+	"age17zp0u74ar4ta0ggtcn3lj4avqkp84qt2cqa0uczvkju0xcpldezsalrr0z"
+]
+
+[bootstrap.services.mise-history]
+builtin = "history-watch"

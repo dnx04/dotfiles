@@ -21,6 +21,7 @@ zoxide = "latest"
 
 [settings.upgrade]
 auto_prune = true
+prune_after = "0s"
 
 [dotfiles]
 "~/.bashrc" = { mode = "track" }

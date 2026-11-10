@@ -11,7 +11,18 @@
       "path": "config/config.toml",
       "autosave": true,
       "encrypt": false,
-      "variants": []
+      "variants": [
+        {
+          "os": [],
+          "profile": "desktop",
+          "default": false
+        },
+        {
+          "os": [],
+          "profile": "server",
+          "default": false
+        }
+      ]
     },
     {
       "path": "home/.bashrc",

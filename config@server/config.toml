@@ -13,7 +13,7 @@ auto_prune = true
 [dotfiles]
 "~/.bashrc" = { mode = "track" }
 "~/.config/git/config" = { mode = "track" }
-"~/.config/mise/config.toml" = { mode = "track" }
+"~/.config/mise/config.toml" = { mode = "track", variants = [{ profile = "desktop" }, { profile = "server" }] }
 "~/.config/tmux/tmux.conf" = { mode = "track" }
 
 [history.encryption]

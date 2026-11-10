@@ -1,11 +1,23 @@
 [tools]
 age = "latest"
+bat = "latest"
 bun = "latest"
 claude = "latest"
 codex = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+gdu = "latest"
 gh = "latest"
+"github:io12/pwninit" = "latest"
 go = "latest"
+lazygit = "latest"
+micromamba = "latest"
+neovim = "latest"
 node = "latest"
+starship = "latest"
+uv = "latest"
+zoxide = "latest"
 
 [settings.upgrade]
 auto_prune = true
